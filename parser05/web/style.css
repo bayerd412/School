@@ -1,0 +1,40 @@
+* {
+    font-family: 'JetBrains Mono', sans-serif;
+}
+
+body {
+    background-color: #202020;
+    color: #ffffff;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+.content {
+    margin-top: 10px;
+}
+
+input {
+    border: none;
+    width: 90%;
+    height: 40px;
+    border-radius: 100px;
+    padding-left: 10px;
+    background-color: #54626d;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+#append_keyword {
+    border: none;
+    cursor: pointer;
+    width: 70%;
+    height: 35px;
+    background-color: #364d60;
+    color: #ffffff;
+    margin-top: 10px;
+    border-radius: 100px;
+}
+
