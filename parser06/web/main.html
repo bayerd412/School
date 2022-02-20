@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parser04</title>
+    <script src="eel.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="imges/icon.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,200;0,300;1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div align="center" class="content">
+        <img src="imges/icon.png" alt="icon" class="logo">
+        <h2>Parser04</h2>
+        <input type="text" id="input_keyword" placeholder="Ключевое слово...">
+        <button id="append_keyword">Добавить слово</button>
+        <p id="result"></p>
+        <div class="input_file_content">
+            <span class="input_file_text">Excel файл</span>
+            <input type="file" id="input_file" placeholder="Перетащите файл сюда">
+        </div>
+        <input type="text" id="input_name_of_list" placeholder="Название листа...">
+        <button id="append_list">Добавить список</button>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    async function append_keyword(){
+        let searching_text = document.getElementById('input_keyword').value;
+
+        let result = await eel.input_keywords(searching_text)();
+        document.getElementById('result').innerHTML = result;
+
+        document.getElementById('input_keyword').value = '';
+    }
+
+    async function append_list(){
+        let path = document.getElementById('input_file').files[0].name;
+        let sheet_number = document.getElementById('input_name_of_list').value;
+        let result = await eel.input_keywords_from_excel(path, sheet_number)();
+
+        document.getElementById('result').innerHTML = result;
+        document.getElementById('input_name_of_list').value = '';
+    }
+
+    $('#append_keyword').click(function(){
+        append_keyword();
+    });
+
+    $('#append_list').click(function(){
+        append_list();
+    });
+
+</script>
+</body>
+</html>
